@@ -1,0 +1,13 @@
+
+
+/* For FAQ list elements */
+main li {
+    color: blue;
+    font-family: serif;
+}
+
+main ul li:first-of-type{
+    color: red;
+    font-family: monospace;
+    font-style: italic;
+}

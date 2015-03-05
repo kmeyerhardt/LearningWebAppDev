@@ -5,6 +5,13 @@ var main = function () {
                  "Answer emails",
                  "Take Gracie to the park",
                  "Finish writing this book"];
+    
+    var images = ["<li><p><a class=\"slides\"  href=\"sc1.png\" title=\"Screenshot 1\">Screenshot 1</a></p></li>",
+                  "<li><p><a class=\"slides\"  href=\"sc2.png\" title=\"Screenshot 2\">Screenshot 2</a></p></li>",
+                  "<li><p><a class=\"slides\"  href=\"sc3.png\" title=\"Screenshot 3\">Screenshot 3</a></p></li>",
+                  "<li><p><a class=\"slides\"  href=\"sc4.png\" title=\"Screenshot 4\">Screenshot 4</a></p></li>"];
+    
+    
 
     $(".tabs a span").toArray().forEach(function (element) {
         var $element = $(element);
@@ -48,6 +55,13 @@ var main = function () {
                 $content = $("<div>").append($input).append($button);
                /* Alternatively append() allows multiple arguments so the above
                 can be done with $content = $("<div>").append($input, $button); */
+            }else if ($element.parent().is(":nth-child(4)")) {
+                $content = $("<ul>");
+                images.forEach(function (image) {
+                    $content.append($(image));
+                });
+                $content.append("</ul>");
+                $content.append("<script>window.onload=$(\".slides\").colorbox({rel:'slides', slideshow:true});</script>");
             }
 
             $("main .content").append($content);
